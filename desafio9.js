@@ -4,6 +4,7 @@
 
 //document.write ('Profesor/a: ' + nombreMayuscula);
 
+let estudiante = "";
 let materias = ['Inglés', 'Matemática', 'Gimnasia']
 console.log(materias)
 
@@ -60,13 +61,10 @@ console.log (listaMaterias);
 
 var nombreProfesor;
 var matriculaProfesor;
-//var usuarioProfesor = nombreProfesor + " " + matriculaProfesor;
 
 function tomarTexto() {
     nombreProfesor = document.getElementById("nombreProf").value;
     matriculaProfesor = document.getElementById("matriculaProf").value;
-    //document.getElementById("mmm").innerHTML = `nombreProfesor + matriculaProfesor`;
-    //console.log (nombreProfesor + matriculaProfesor);
     console.log(nombreProfesor + " " + matriculaProfesor);
      document.getElementById("mensajeBienvenida").innerHTML = `
         <div>
@@ -75,9 +73,47 @@ function tomarTexto() {
             <h4>Número de Matricula: ${matriculaProfesor} </h4>
         </div>
         `;
+  }
+
+function tomarDatosProf() {
+    nombreProfesor = document.getElementById("nombreProf").value;
+    matriculaProfesor = document.getElementById("matriculaProf").value;
+    document.getElementById("mmm").innerHTML = `
+        <div>
+               <h3>${nombreProfesor + matriculaProfesor}</h3>
+        </div>
+    `;
+}  
+
+function verDatos(event){
+    console.log (event.target.value);
 }
 
 
+var nombNuevoEstudiante;
+var docNuevoEstudiante;
+var cursoNuevoEstudiante;
+var promNuevoEstudiante;
+
+function ingresarEstudiante() {
+        nombNuevoEstudiante = document.getElementById("nomb").value;
+        docNuevoEstudiante = document.getElementById("documento").value;
+        cursoNuevoEstudiante = document.getElementById("curso").value;
+        promNuevoEstudiante = document.getElementById("promedios").value;
+
+        document.getElementById("nuevoEstudiante").innerHTML = `
+        <img src="woman.png" alt="">
+        <p>NOMBRE: ${nombNuevoEstudiante}<p>
+        <p>DNI: ${docNuevoEstudiante}</p>
+        <p>AÑO DE CURSO: ${cursoNuevoEstudiante}<p>
+        <p>PROMEDIO TRIMESTRAL: ${promNuevoEstudiante}</p>
+        `;
+        console.log (nombNuevoEstudiante + docNuevoEstudiante + cursoNuevoEstudiante + promNuevoEstudiante);
+    }
+
+
+     
+    
 
 
 
