@@ -60,13 +60,24 @@ console.log (listaMaterias);
 
 var nombreProfesor;
 var matriculaProfesor;
-var usuarioProfesor = nombreProfesor + " " + matriculaProfesor;
+//var usuarioProfesor = nombreProfesor + " " + matriculaProfesor;
 
-function enviarTexto() {
+function tomarTexto() {
     nombreProfesor = document.getElementById("nombreProf").value;
     matriculaProfesor = document.getElementById("matriculaProf").value;
-    document.getElementById("mmm").value= usuarioProfesor;
+    //document.getElementById("mmm").innerHTML = `nombreProfesor + matriculaProfesor`;
+    //console.log (nombreProfesor + matriculaProfesor);
+    console.log(nombreProfesor + " " + matriculaProfesor);
+     document.getElementById("mensajeBienvenida").innerHTML = `
+        <div>
+            <h3>Bienvenido/a ${nombreProfesor} !</h3>
+            <h4>Nombre Usuario: ${nombreProfesor}</h4>
+            <h4>Número de Matricula: ${matriculaProfesor} </h4>
+        </div>
+        `;
 }
+
+
 
 
 
