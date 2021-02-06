@@ -61,6 +61,7 @@ console.log (listaMaterias);
 
 var nombreProfesor;
 var matriculaProfesor;
+localStorage.setItem('profesor',JSON.stringify(nombreProfesor));
 
 function tomarTexto() {
     nombreProfesor = document.getElementById("nombreProf").value;
@@ -74,13 +75,17 @@ function tomarTexto() {
         </div>
         `;
   }
-
+ //tomar datos del input index.html y llevarlo al div de desafio.html
 function tomarDatosProf() {
     nombreProfesor = document.getElementById("nombreProf").value;
     matriculaProfesor = document.getElementById("matriculaProf").value;
-    document.getElementById("mmm").innerHTML = `
-        <div>
-               <h3>${nombreProfesor + matriculaProfesor}</h3>
+
+    localStorage.setItem('login',JSON.stringify(nombreProfesor));
+    console.log(JSON.parse(localStorage.getItem('login')));
+    
+    document.getElementById("mmm").innerHTML= `
+        <div> 
+            <p>NOMBRE: ${JSON.parse(localStorage.getItem('login'))}<p>
         </div>
     `;
 }  
@@ -89,26 +94,31 @@ function verDatos(event){
     console.log (event.target.value);
 }
 
+//ingreso de nuevo estudiante
 
-var nombNuevoEstudiante;
-var docNuevoEstudiante;
-var cursoNuevoEstudiante;
-var promNuevoEstudiante;
+var nuevoEstudiante = {id: 1, nombre: "", documento:"", curso:"",promedio:""};
+
+if (localStorage.getItem("nuevoEstudiante") != null) {
+    nuevoEstudiante = JSON.parse(localStorage.getItem("nuevoEstudiante"));
+
+  }
+localStorage.setItem('estudiante',JSON.stringify(nuevoEstudiante));
+
+console.log(JSON.parse(localStorage.getItem('nuevoEstudiante')));
 
 function ingresarEstudiante() {
-        nombNuevoEstudiante = document.getElementById("nomb").value;
-        docNuevoEstudiante = document.getElementById("documento").value;
-        cursoNuevoEstudiante = document.getElementById("curso").value;
-        promNuevoEstudiante = document.getElementById("promedios").value;
+        nuevoEstudiante.nombre = document.getElementById("nomb").value;
+        nuevoEstudiante.documento = document.getElementById("documento").value;
+        nuevoEstudiante.curso = document.getElementById("curso").value;
+        nuevoEstudiante.promedio = document.getElementById("promedios").value;
 
         document.getElementById("nuevoEstudiante").innerHTML = `
         <img src="woman.png" alt="">
-        <p>NOMBRE: ${nombNuevoEstudiante}<p>
-        <p>DNI: ${docNuevoEstudiante}</p>
-        <p>AÑO DE CURSO: ${cursoNuevoEstudiante}<p>
-        <p>PROMEDIO TRIMESTRAL: ${promNuevoEstudiante}</p>
+        <p>NOMBRE: ${nuevoEstudiante.nombre}<p>
+        <p>DNI: ${nuevoEstudiante.documento}</p>
+        <p>AÑO DE CURSO: ${nuevoEstudiante.curso}<p>
+        <p>PROMEDIO TRIMESTRAL: ${nuevoEstudiante.promedio}</p>
         `;
-        console.log (nombNuevoEstudiante + docNuevoEstudiante + cursoNuevoEstudiante + promNuevoEstudiante);
     }
 
 
