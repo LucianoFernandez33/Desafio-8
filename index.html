@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="desafio9.css">
+    <script src="jquery.min.js" defer></script>
     <script src="desafio9.js"></script>
+    
 </head>
 <body>
     <main>
         <h1>Base de Datos da la Institución SN</h1>
         <section id="formulario">
             <label for="">Ingrese Nombre</label>
-            <input type="text" placeholder="Ingrese Nombre" value id="nombreProf" required onchange="verDatos(event)">
+            <input type="text" placeholder="Ingrese Nombre" value id="nombreProf" required >
             <label for="">Ingrese matricula</label>
-            <input type="number" placeholder="Ingrese matricula del profesor" value id="matriculaProf" onchange="verDatos(event)" required>
+            <input type="number" placeholder="Ingrese matricula del profesor" value id="matriculaProf" required>
             <div id="mensajeBienvenida"></div>
             <div>
                 <button onclick="tomarTexto()">Validar</button>
